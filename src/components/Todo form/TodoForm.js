@@ -1,18 +1,17 @@
-import React, {useState} from react;
+import { useState } from 'react';
 
-const TodoForm = ({addTodo}) => {
+const TodoForm = ({addTodoItem}) => {
     const[inputValue, setInputValue] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!inputValue.trim()) return;
-        addTodo(inputValue);
+        addTodoItem(inputValue);
         setInputValue('');
-    }
-};
+    };
 
 return (
-    <form onclick={handleSubmit}>
+    <form onClick={handleSubmit}>
         <input
         type="text"
         placeholder="Add a new item"
@@ -23,5 +22,6 @@ return (
 
     </form>
 )
+};
 
 export default TodoForm;
