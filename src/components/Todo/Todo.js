@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import TodoForm from "../Todo form/TodoForm";
+import './Todo.css';
 
-const Todo = () => {
-    const[todoItems, setTodoItems] = useState([]);
+function Todo() {
+    const [todoItems, setTodoItems] = useState([]);
 
     const addTodoItem = (text) => {
-        const newTodoItem = {id: todoItems.length +1, text};
+        const newTodoItem = { id: todoItems.length + 1, text };
         setTodoItems([...todoItems, newTodoItem]);
-        console.log(addTodoItem);
     };
 
 
@@ -20,12 +20,12 @@ const Todo = () => {
                 {todoItems.map((todoItems) => (
                     <li key={todoItems.id}>{todoItems.text}</li>
                 )
-                    
+
                 )}
             </ul>
 
         </div>
     );
-};
+}
 
 export default Todo;
