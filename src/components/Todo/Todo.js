@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import TodoForm from "../Todo form/TodoForm";
+import updateTodoItem from '../Todo Icons/TodoIcons';
 import './Todo.css';
 
 function Todo() {
@@ -18,7 +19,9 @@ function Todo() {
             <TodoForm addTodoItem={addTodoItem} />
             <ul>
                 {todoItems.map((todoItems) => (
-                    <li key={todoItems.id}>{todoItems.text}</li>
+                    <li key={todoItems.id}>{todoItems.text}
+                    <updateTodoItem />
+                    </li>
                 )
 
                 )}
@@ -26,6 +29,7 @@ function Todo() {
 
         </div>
     );
+    
 }
 
 export default Todo;
