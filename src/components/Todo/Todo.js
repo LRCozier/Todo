@@ -1,15 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import TodoForm from "../Todo form/TodoForm";
-import updateTodoItem from '../Todo Icons/TodoIcons';
+import { FaTrash, FaCheck } from 'react-icons/fa';
 import './Todo.css';
 
 function Todo() {
-    const [todoItems, setTodoItems] = useState([]);
+    const [todoItem, setTodoItems] = useState([]);
 
     const addTodoItem = (text) => {
-        const newTodoItem = { id: todoItems.length + 1, text };
-        setTodoItems([...todoItems, newTodoItem]);
+        const newTodoItem = { id: todoItem.length + 1, text };
+        setTodoItems([...todoItem, newTodoItem]);
     };
 
 
@@ -18,10 +18,14 @@ function Todo() {
             <h1>To do List</h1>
             <TodoForm addTodoItem={addTodoItem} />
             <ul>
-                {todoItems.map((todoItems) => (
-                    <li key={todoItems.id}>{todoItems.text}
-                    <updateTodoItem />
+                {todoItem.map((todoItems) => (
+                    <div className='todoItem'>
+                    <li key={todoItems.id}>
+                        <span>{todoItems.text}</span>
+                        <FaTrash onClick={() => onDelete(todoItem.id)} />
+                        <FaCheck onClick={() => onComplete(todoItem.id)} />
                     </li>
+                    </div>
                 )
 
                 )}
