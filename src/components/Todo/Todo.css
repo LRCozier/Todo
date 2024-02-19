@@ -1,3 +1,17 @@
+body {
+    background-color: #5158BB;
+    color: #ffffff;
+  }
+
+h1 {
+    display: inline;
+    width: 33%;
+    font-size: 60px;
+    margin: 80% auto;
+    padding: 50px;
+}
+
 ul {
     list-style-type: none;
 }
+
