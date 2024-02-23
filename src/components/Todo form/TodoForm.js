@@ -18,7 +18,7 @@ return (
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         />
-        <button type="submit">+</button>
+        <button type="submit">Add</button>
 
     </form>
 )

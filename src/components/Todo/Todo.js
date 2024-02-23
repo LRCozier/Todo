@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import TodoForm from "../Todo form/TodoForm";
 import { FaTrash, FaCheck } from 'react-icons/fa';
@@ -7,7 +7,18 @@ import './Todo.css';
 //function to add to do items to a list
 function Todo()  {
     //state to store todo Items
-    const [todoItem, setTodoItems] = useState([]);
+    const [todoItem, setTodoItems] = useState(()=> {
+        const local = localStorage.getItem("TODO ITEM")
+        if (local == null) {
+            return [];
+        } else {
+            return JSON.parse(local)
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem("TODO ITEM", JSON.stringify(todoItem))
+    }, [todoItem])
 
     //function to add a new todo item to the list using the todo form
     const addTodoItem = (text) => {
@@ -20,27 +31,17 @@ function Todo()  {
         setTodoItems(todoItem.filter(todo => todo.id !==id));
     }
 
-    //function to mark a task as complete on the list (triggered by the FaCheck icon)
-    const completeTask = (id) => {
-        setTodoItems(todoItem.map( todo => {
-            if(todo === id) {
-                return {...todo, completed: !todo.completed };
-            }
-            return todo;
-        }));
-    };
-
     return (
         <div>
             <h1>To do List</h1>
             <TodoForm addTodoItem={addTodoItem} />
+            {todoItem.length === 0 && "No Items"}
                 {todoItem.map((todoItem) => (
                     <ul>
-                        <div className={`todoItem ${todoItem.completed ? 'completed' : 'active'}`} key={todoItem.id}>
+                        <div key={todoItem.id}>
                             <li>
                                 <span style={{ textDecoration: todoItem.completed ? 'line-through' : 'none' }}>{todoItem.text}</span>
-                                <span onClick={() => deleteTask(todoItem.id)}><FaTrash /></span>
-                                <span {...() => completeTask(todoItem.id)}><FaCheck /></span>
+                                <button onClick={() => deleteTask(todoItem.id)}><FaTrash /></button>
                             </li>
                         </div>
                     </ul>
