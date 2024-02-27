@@ -40,8 +40,9 @@ function Todo()  {
                     <ul>
                         <div key={todoItem.id}>
                             <li>
+                                <input type="checkbox"></input>
                                 <span style={{ textDecoration: todoItem.completed ? 'line-through' : 'none' }}>{todoItem.text}</span>
-                                <button onClick={() => deleteTask(todoItem.id)}><FaTrash /></button>
+                                <button onClick={() => deleteTask(todoItem.id)}>Delete</button>
                             </li>
                         </div>
                     </ul>
