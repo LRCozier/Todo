@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import TodoForm from "../Todo form/TodoForm";
-import { FaTrash, FaCheck } from 'react-icons/fa';
 import './Todo.css';
 
 //function to add to do items to a list
@@ -26,9 +25,19 @@ function Todo()  {
         setTodoItems([...todoItem, newTodoItem]);
     };
 
+    //function to mark a todo item as complete, using the checkbox
+    const completeTask = (id) => {
+        setTodoItems(todoItem.map(todoItem => {
+            if (todoItem.id === id) {
+                return { ...todoItem, completed: !todoItem.completed };
+            }
+            return todoItem;
+        }));
+    };
+
     //function to delete a task from the list (triggered by the FaTrash icon)
     const deleteTask = (id) => {
-        setTodoItems(todoItem.filter(todo => todo.id !==id));
+        setTodoItems(todoItem.filter(todoItem => todoItem.id !==id));
     }
 
     return (
@@ -40,8 +49,8 @@ function Todo()  {
                     <ul>
                         <div key={todoItem.id}>
                             <li>
-                                <input type="checkbox"></input>
-                                <span style={{ textDecoration: todoItem.completed ? 'line-through' : 'none' }}>{todoItem.text}</span>
+                                <input type="checkbox" onClick={() => completeTask(todoItem.id)}></input>
+                                <span style={{ textDecoration: todoItem.completed ? 'line-through' : 'none' }}>{todoItem.text}</span><br></br>
                                 <button onClick={() => deleteTask(todoItem.id)}>Delete</button>
                             </li>
                         </div>
