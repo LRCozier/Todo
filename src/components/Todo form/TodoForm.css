@@ -1,8 +1,20 @@
 form {
-    background-color: #5158BB;
-    color: #fff;
-}
-
-button {
-    background-color: #5158BB;
-}
+    background-color: #5158bb;
+    color: #ffffff;
+  }
+  
+  button {
+    background-color: #5158bb;
+  }
+  
+  .todoForm input {
+    border: 1px solid #9966ff;
+    background: #6680ff;
+    border-radius: 0.25em;
+    padding: 4px 8px;
+    color: #e6e6e6;
+  }
+  
+  .todoForm input:focus {
+    border: 1px solid #99b3ff;
+  }

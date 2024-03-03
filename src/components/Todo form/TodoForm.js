@@ -11,7 +11,7 @@ const TodoForm = ({addTodoItem}) => {
     };
 
 return (
-    <form onClick={handleSubmit}>
+    <form onClick={handleSubmit} className='todoForm'>
         <input
         type="text"
         placeholder="Add a new item"

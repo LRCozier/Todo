@@ -47,11 +47,11 @@ function Todo()  {
             {todoItem.length === 0 && "No Items"}
                 {todoItem.map((todoItem) => (
                     <ul>
-                        <div key={todoItem.id}>
+                        <div key={todoItem.id} className='todolist'>
                             <li>
                                 <input type="checkbox" onClick={() => completeTask(todoItem.id)}></input>
                                 <span style={{ textDecoration: todoItem.completed ? 'line-through' : 'none' }}>{todoItem.text}</span><br></br>
-                                <button onClick={() => deleteTask(todoItem.id)}>Delete</button>
+                                <button onClick={() => deleteTask(todoItem.id)} className='btn-danger'>Delete</button>
                             </li>
                         </div>
                     </ul>
