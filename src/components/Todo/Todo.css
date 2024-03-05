@@ -18,11 +18,6 @@
     gap: 8px;
   }
   
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
   
   button {
     background: #000000;
@@ -75,10 +70,6 @@
     margin-left: 16px;
   }
   
-  .todolist li:has(input:checked) label {
-    color: #666699;
-  }
-  
   .todolist {
     display: flex;
     flex-direction: column;
@@ -92,44 +83,7 @@
     margin-bottom: 10px;
   }
   
-  .todolist li label {
-    display: flex;
-    gap: 4px;
-    cursor: pointer;
-    align-items: center;
-  }
-  
-  .todolist li:has(input:focus-visible) label {
-    outline: 1px solid #00ffff;
-  }
-  
   .todolist li input {
     position: relative;
   }
   
-  .todolist li label::before {
-    content: "";
-    display: block;
-    width: 14px;
-    height: 14px;
-    background: #e6e6e6;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .todolist li label:hover::before {
-    background: #cccccc;
-  }
-  
-  .todolist li:has(input:checked) label::before {
-    background: #ff6666;
-    color: #e6e6e6;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  
-  .todolist li:has(input:checked) label:hover::before {
-    background: #ff4d4d;
-  }
